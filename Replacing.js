@@ -12,16 +12,13 @@ reader.on("line", (line) => {
   input_lines.push(line);
 });
 
-reader.on("close", () => {
-  tx = input_lines[0] - 0;
-  function t(x) {
-    if (x <= 1) {
-      return 0;
-    } else if (x % 2 === 0) {
-      return t(x + 1) + x;
-    } else {
-      return t(x - 3) - x;
-    }
-  }
-  console.log(t(tx));
+reader.on("close", async () => {
+  console.log(input_lines);
+
+  var crypto = require("crypto");
+  var hash = crypto.createHash("sha256");
+
+  let SimonInstruction = input_lines[0].split(" ");
+  function t() {}
+  console.log(t());
 });
